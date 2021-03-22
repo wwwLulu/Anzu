@@ -87,7 +87,7 @@ export default {
     &__title {
         font-weight: 100;
         margin-left: 2rem;
-        max-width: 25rem;
+        width: 100%;
         cursor: pointer;
     }
     &__score,
