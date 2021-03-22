@@ -88,7 +88,7 @@ export default {
 
     @media (max-width: 700px) {
         * {
-            font-size: 1.3rem;
+            font-size: 1rem;
         }
         p {
             width: 5rem;
