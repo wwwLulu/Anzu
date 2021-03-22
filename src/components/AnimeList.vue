@@ -80,7 +80,7 @@ export default {
         }
         &--left {
             margin-left: 3.2rem;
-        }
+        } 
         &--right {
             display: flex;
         }

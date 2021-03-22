@@ -59,6 +59,7 @@ export default {
     }
 
     &__cover-container {
+        flex-shrink: 0;
         width: 4rem;
         height: 4rem;
     }
