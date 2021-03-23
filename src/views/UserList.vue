@@ -4,11 +4,13 @@
         :userImgUrl="'https://avatarfiles.alphacoders.com/262/262565.jpg'"
     />
     <div class="container">
-        <!-- <div class="background"></div> -->
         <AnimeList
             :type="'Watching'"
             :animeList="
-                animeList.filter((anime) => anime.episodes > anime.episodeOn)
+                animeList.filter(
+                    (anime) =>
+                        anime.episodes > anime.episodeOn && anime.episodeOn > 1
+                )
             "
         />
         <AnimeList
@@ -16,6 +18,10 @@
             :animeList="
                 animeList.filter((anime) => anime.episodes <= anime.episodeOn)
             "
+        />
+        <AnimeList
+            :type="'Plan To Watch'"
+            :animeList="animeList.filter((anime) => anime.episodeOn <= 1)"
         />
     </div>
 </template>
@@ -43,24 +49,68 @@ export default {
                 },
                 {
                     title: 'Made In Abyss',
-                    score: 8,
-                    episodes: 1,
-                    episodeOn: 1,
+                    score: 10,
+                    episodes: 13,
+                    episodeOn: 13,
                     coverUrl:
                         'https://cdn.myanimelist.net/images/anime/6/86733.webp',
-                    type: 'Movie',
+                    type: 'TV',
                 },
                 {
                     title: 'Ore no Imouto ga Konnani Kawaii Wake ga Nai',
-                    score: 9,
+                    score: 8,
                     episodes: 12,
                     episodeOn: 12,
                     coverUrl:
                         'https://cdn.myanimelist.net/images/anime/8/24875.jpg',
                     type: 'TV',
                 },
+                {
+                    title: 'Anohana.',
+                    score: 9,
+                    episodes: 11,
+                    episodeOn: 11,
+                    coverUrl:
+                        'https://cdn.myanimelist.net/images/anime/5/79697.jpg',
+                    type: 'TV',
+                },
+                {
+                    title: 'Barakamon',
+                    score: 8.5,
+                    episodes: 11,
+                    episodeOn: 11,
+                    coverUrl:
+                        'https://cdn.myanimelist.net/images/anime/12/65427.jpg',
+                    type: 'TV',
+                },
+                {
+                    title: 'Katanagatari',
+                    episodes: 11,
+                    episodeOn: 1,
+                    coverUrl:
+                        'https://cdn.myanimelist.net/images/anime/2/50023.jpg',
+                    type: 'TV',
+                },
             ],
         }
+    },
+    mounted() {
+        // this.sortByTitleAZ()
+        this.sortByScoreAsc()
+    },
+    methods: {
+        sortByTitleAZ() {
+            this.animeList = this.animeList.sort((a, b) => a.title > b.title)
+        },
+        sortByTitleZA() {
+            this.animeList = this.animeList.sort((a, b) => a.title < b.title)
+        },
+        sortByScoreDesc() {
+            this.animeList = this.animeList.sort((a, b) => a.score - b.score)
+        },
+        sortByScoreAsc() {
+            this.animeList = this.animeList.sort((a, b) => b.score - a.score)
+        },
     },
 }
 </script>
@@ -72,6 +122,7 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-bottom: 10rem;
 }
 .background {
     position: fixed;

@@ -37,13 +37,6 @@ export default {
     components: {
         AnimeListEntry,
     },
-
-    methods: {
-        sortByTitleAZ() {},
-        sortByTitleZA() {},
-        sortByScoreDesc() {},
-        sortByScoreAsc() {},
-    },
 }
 </script>
 
@@ -64,7 +57,7 @@ export default {
 
     &__heading {
         font-size: 2.2rem;
-        font-weight: 100;
+        font-weight: 300;
         color: var(--color-text-100);
         margin-bottom: 1rem;
     }
@@ -80,7 +73,7 @@ export default {
         }
         &--left {
             margin-left: 3.2rem;
-        } 
+        }
         &--right {
             display: flex;
         }

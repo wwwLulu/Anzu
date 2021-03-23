@@ -39,7 +39,7 @@ export default {
         margin: 1rem;
         color: var(--color-text-100);
         font-size: 1.8rem;
-        font-weight: 100;
+        font-weight: 300;
     }
 }
 </style>

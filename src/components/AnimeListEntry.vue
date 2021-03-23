@@ -86,7 +86,7 @@ export default {
         height: 15rem;
     }
     &__title {
-        font-weight: 100;
+        font-weight: 300;
         margin-left: 2rem;
         width: 100%;
         cursor: pointer;
@@ -94,7 +94,7 @@ export default {
     &__score,
     &__progress,
     &__type {
-        font-weight: 100;
+        font-weight: 300;
     }
 
     @media (max-width: 1200px) {
