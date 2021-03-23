@@ -27,7 +27,7 @@ export default {
     justify-content: center;
     align-items: center;
     @media (min-width: 1050px) {
-        height: 100vh;
+        margin-top: 4rem;
     }
     @media (min-width: 700px) {
         html {
