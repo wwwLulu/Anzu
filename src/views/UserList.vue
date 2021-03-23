@@ -1,28 +1,31 @@
 <template>
-    <UserProfile
-        :username="'wwwLulu'"
-        :userImgUrl="'https://avatarfiles.alphacoders.com/262/262565.jpg'"
-    />
-    <section class="lists">
-        <AnimeList
-            v-if="watchingList.length != 0"
-            :type="'Watching'"
-            :animeList="watchingList"
-            @sortUserList="sortUserList"
+    <div class="row">
+        <UserProfile
+            class="col-4"
+            :username="'wwwLulu'"
+            :userImgUrl="'https://avatarfiles.alphacoders.com/262/262565.jpg'"
         />
-        <AnimeList
-            v-if="completedList.length != 0"
-            :type="'Completed'"
-            :animeList="completedList"
-            @sortUserList="sortUserList"
-        />
-        <AnimeList
-            v-if="planToWatchList.length != 0"
-            :type="'Plan To Watch'"
-            :animeList="planToWatchList"
-            @sortUserList="sortUserList"
-        />
-    </section>
+        <section class="lists col-8">
+            <AnimeList
+                v-if="watchingList.length != 0"
+                :type="'Watching'"
+                :animeList="watchingList"
+                @sortUserList="sortUserList"
+            />
+            <AnimeList
+                v-if="completedList.length != 0"
+                :type="'Completed'"
+                :animeList="completedList"
+                @sortUserList="sortUserList"
+            />
+            <AnimeList
+                v-if="planToWatchList.length != 0"
+                :type="'Planning'"
+                :animeList="planToWatchList"
+                @sortUserList="sortUserList"
+            />
+        </section>
+    </div>
 </template>
 
 <script>
@@ -148,14 +151,39 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.lists {
-    width: 100vw;
+.row {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-wrap: wrap;
+
+    $columns: 12;
+
+    [class^='col-'] {
+        flex-basis: 100%;
+    }
+
+    @media (min-width: 1050px) {
+        @for $i from 1 through $columns {
+            .col-#{$i} {
+                flex: 0 0 (100% / ($columns / $i));
+            }
+            .col-offset-#{$i} {
+                margin-left: 100% / (($columns / $i));
+            }
+        }
+    }
+}
+
+.lists {
+    width: 100%;
     align-items: center;
     padding-bottom: 10rem;
+    @media (max-width: 1050px) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
 }
+
 .background {
     position: fixed;
     top: 0;

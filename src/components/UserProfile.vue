@@ -18,11 +18,16 @@ export default {
 
 <style lang="scss" scoped>
 .user {
-    margin-top: 3rem;
+    // background: blue;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    @media (min-width: 1050px) {
+        height: 100vh;
+    }
     &__avatar-container {
         width: 12.5rem;
         height: 12.5rem;
