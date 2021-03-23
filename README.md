@@ -1,5 +1,5 @@
-# anime-tracker
-
+# Anime-tracker (Akko)
+<img src='https://i.ibb.co/qnZnBRm/Screen-Shot-2021-03-23-at-5-20-06-AM.png'>
 ## Project setup
 ```
 npm install
