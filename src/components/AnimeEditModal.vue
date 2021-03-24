@@ -6,7 +6,7 @@
                 <img :src="coverUrl" alt="" class="modal__cover" />
             </div>
             <div class="modal__edit">
-                <div>
+                <div class="modal__input">
                     <label for="score">Score: </label>
                     <input
                         type="number"
@@ -17,7 +17,7 @@
                         ref="score"
                     />
                 </div>
-                <div>
+                <div class="modal__input">
                     <label for="progress">Progress: </label>
                     <input
                         type="number"
@@ -28,7 +28,7 @@
                     />
                     <span> / {{ episodes }}</span>
                 </div>
-                <div>
+                <div class="modal__input">
                     <label for="checkbox">Completed: </label>
                     <input
                         v-if="currentEpisode != episodes"
@@ -154,9 +154,8 @@ export default {
         position: relative;
         font-weight: 300;
         margin-left: 1rem;
-        *:not(:last-child) {
-            margin-bottom: 1rem;
-        }
+        // *:not(:last-child) {
+        // }
     }
     &__info {
         padding: 1rem;
@@ -169,15 +168,23 @@ export default {
         max-width: 50rem;
         box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
             0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
         input {
             width: 6rem;
             border: none;
-            text-align: right;
             text-align: center;
             font-size: 1.4rem;
             font-weight: 300;
             font-family: 'Lato', sans-serif;
         }
+    }
+    &__input {
+        min-height: 3rem;
+        border: none;
+        text-align: left;
+        font-size: 1.4rem;
+        font-weight: 300;
+        font-family: 'Lato', sans-serif;
     }
 }
 </style>
