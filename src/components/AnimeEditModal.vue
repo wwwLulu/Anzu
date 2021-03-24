@@ -31,18 +31,22 @@
                 <div>
                     <label for="checkbox">Completed: </label>
                     <input
-                        @click="completed"
-                        v-if="episodes != currentEpisode"
+                        v-if="currentEpisode != episodes"
+                        @click="toggleCompleted"
+                        :value="completed"
                         type="checkbox"
                         name="checkbox"
-                        ref="completed"
+                        ref="checkbox"
                     />
                     <input
                         v-else
+                        @click="toggleCompleted"
+                        :value="completed"
                         type="checkbox"
                         name="checkbox"
-                        ref="completed"
+                        ref="checkbox"
                         checked
+                        disabled
                     />
                 </div>
                 <button @click="saveAndClose" class="modal__save">Save</button>
@@ -61,6 +65,11 @@ export default {
         type: String,
     },
     emits: ['closeModal'],
+    data() {
+        return {
+            completed: false,
+        }
+    },
     computed: {
         currentEpisode() {
             return this.progress.slice(0, this.progress.split('').indexOf('/'))
@@ -73,21 +82,21 @@ export default {
         },
     },
     methods: {
-        completed() {
-            this.$store.commit('updateProgress', {
-                title: this.title,
-                episode: this.episodes,
-            })
+        toggleCompleted() {
+            this.completed = !this.completed
         },
         saveAndClose() {
             this.$store.commit('updateProgress', {
                 title: this.title,
-                episode: this.$refs.progress.value,
+                episode: this.completed
+                    ? this.episodes
+                    : this.$refs.progress.value,
             })
             this.$store.commit('updateScore', {
                 title: this.title,
                 newScore: this.$refs.score.value,
             })
+            this.$emit('closeModal')
         },
     },
 }
