@@ -1,4 +1,5 @@
 <template>
+    <h1>Logged in as {{ $store.getters.userName }}</h1>
     <router-view />
 </template>
 

@@ -49,13 +49,6 @@
                     v-model="password"
                     placeholder="Password"
                 />
-                <!-- <input
-                    class="form__input"
-                    type="password"
-                    name="confirmPassword"
-                    v-model="confirmPassword"
-                    placeholder="Confirm Password"
-                /> -->
                 <input
                     type="text"
                     class="form__input"
@@ -76,7 +69,6 @@ export default {
             loginMode: true,
             email: '',
             password: '',
-            confirmPassword: '',
             userName: '',
         }
     },
@@ -103,6 +95,7 @@ export default {
                     username: this.userName,
                 })
             }
+            this.$router.replace(`/user/${this.$store.getters.userName}`)
         },
     },
 }

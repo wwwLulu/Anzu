@@ -47,18 +47,29 @@ const store = createStore({
                 }
             )
             const data = await res.json()
+            const userId = data.localId
             if (!res.ok) {
                 const error = new Error(
                     data.message || 'Failed to authenticate.'
                 )
                 throw error
             }
+            const res2 = await fetch(
+                `https://anime-list-e4360-default-rtdb.firebaseio.com/userInfo/${userId}.json`
+            )
+            if (!res2.ok) {
+                const error = new Error(
+                    data.message || 'Failed to fetch user info'
+                )
+                throw error
+            }
+            const userInfoObj = await res2.json()
             context.commit('setUser', {
                 token: data.idToken,
                 userId: data.localId,
                 tokenExpiration: data.expiresIn,
+                username: userInfoObj.userName,
             })
-            await context.dispatch('updateUserInfo')
         },
         async signUp(context, payload) {
             await context.dispatch('checkUserValid', payload.username)
