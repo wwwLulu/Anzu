@@ -9,9 +9,8 @@ const store = createStore({
     state() {
         return {
             userId: 'c3',
-            userAvatar:
-                'https://avatars.githubusercontent.com/u/77130682?s=460&u=091475bd4b0999c440f2f381f38dc307b79a021a&v=4',
-            userName: 'wwwLulu',
+            userAvatar: '',
+            userName: '',
         }
     },
     getters: {
@@ -44,6 +43,17 @@ const store = createStore({
             if (!res.ok) {
                 console.log('Error inserting data into DB')
             }
+        },
+        async getUserInfo(context) {
+            const res = await fetch(
+                `https://anime-list-e4360-default-rtdb.firebaseio.com/userInfo/${context.state.userId}.json`
+            )
+            const userInfoObj = await res.json()
+            if (!res.ok) {
+                console.log('Error getting data from DB')
+            }
+            context.state.userName = userInfoObj['userName']
+            context.state.userAvatar = userInfoObj['userAvatar']
         },
     },
 })

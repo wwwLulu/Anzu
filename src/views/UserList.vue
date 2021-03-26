@@ -37,9 +37,10 @@ export default {
         AnimeList,
         UserProfile,
     },
-    created() {
+    async created() {
         // this.$store.dispatch('updateUserInfo')
-        this.$store.dispatch('getUserList')
+        await this.$store.dispatch('getUserInfo')
+        await this.$store.dispatch('getUserList')
     },
     mounted() {
         this.$store.commit('sortUserList', this.sortMethod)

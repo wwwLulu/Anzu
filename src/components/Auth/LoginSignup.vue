@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="card">
         <button
             class="mode"
             :class="{ mode__active: loginMode }"
@@ -67,10 +67,10 @@ export default {
     data() {
         return {
             isValid: true,
-            loginMode: false,
+            loginMode: true,
             email: '',
             password: '',
-            userName: '',
+            username: '',
             confirmPassword: '',
         }
     },
@@ -90,29 +90,42 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.card {
+    margin: 5rem;
+    padding: 1.5rem;
+    background: white;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    width: fit-content;
+    border-radius: 0.5rem;
+}
+
 .mode {
     cursor: pointer;
-    margin-left: 1rem;
+    margin-bottom: 0.5rem;
     background: none;
+    text-align: left;
     border: none;
-    font-size: 2rem;
+    font-size: 1.8rem;
+    padding: 0.5rem;
+    font-weight: 300;
+    color: var(--color-text-100);
     &__active {
+        font-weight: 400;
         color: var(--color-primary);
     }
 }
 
 .form {
-    max-width: 30rem;
-    padding: 1.5rem;
-    // background: white;
+    width: 20rem;
     border-radius: 0.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
     &__input {
+        font-weight: 300;
         color: var(--color-text-100);
-        background: darken(#fff, 0);
+        background: darken(#fff, 10);
         &:not(:last-child) {
             margin-bottom: 1.5rem;
         }
