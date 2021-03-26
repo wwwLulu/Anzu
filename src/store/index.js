@@ -31,7 +31,7 @@ const store = createStore({
             const userAvatar = context.getters.userAvatar
             const userId = context.getters.userId
             const res = await fetch(
-                `https://coach-app-c4584-default-rtdb.firebaseio.com/userInfo/${userId}.json`,
+                `https://anime-list-e4360-default-rtdb.firebaseio.com/userInfo/${userId}.json`,
                 {
                     method: 'PUT',
                     body: JSON.stringify({

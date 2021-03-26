@@ -26,15 +26,19 @@
 </template>
 
 <script>
-import AnimeList from '@/components/AnimeList'
-import UserProfile from '@/components/UserProfile'
+import AnimeList from '@/components/UserList/AnimeList'
+import UserProfile from '@/components/UserList/UserProfile'
 
 export default {
+    props: {
+        username: String,
+    },
     components: {
         AnimeList,
         UserProfile,
     },
     created() {
+        // this.$store.dispatch('updateUserInfo')
         this.$store.dispatch('getUserList')
     },
     mounted() {

@@ -73,7 +73,7 @@ export default {
         async getUserList(context) {
             const userName = context.rootGetters.userName
             const res = await fetch(
-                `https://coach-app-c4584-default-rtdb.firebaseio.com/userlist/${userName}.json`
+                `https://anime-list-e4360-default-rtdb.firebaseio.com/userlist/${userName}.json`
             )
             const userListObj = await res.json()
             const userList = []
@@ -94,7 +94,7 @@ export default {
         async updateUserList(context) {
             const userName = context.rootGetters.userName
             const response = await fetch(
-                `https://coach-app-c4584-default-rtdb.firebaseio.com/userlist/${userName}.json`,
+                `https://anime-list-e4360-default-rtdb.firebaseio.com/userlist/${userName}.json`,
                 {
                     method: 'PUT',
                     body: JSON.stringify(context.getters.animeList),

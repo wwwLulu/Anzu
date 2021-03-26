@@ -42,7 +42,7 @@
 </template>
 
 <script>
-import AnimeEditModal from '@/components/AnimeEditModal'
+import AnimeEditModal from '@/components/UserList/AnimeEditModal'
 
 export default {
     props: {

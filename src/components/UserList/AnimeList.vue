@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import AnimeListEntry from '@/components/AnimeListEntry'
+import AnimeListEntry from '@/components/UserList/AnimeListEntry'
 
 export default {
     props: {

@@ -1,9 +1,19 @@
 <template>
     <div class="home">
-        <div class="home__background"></div>
-        <h1>Hello World</h1>
+        <!-- <div class="home__background"></div> -->
+        <LoginSignup />
     </div>
 </template>
+
+<script>
+import LoginSignup from '@/components/Auth/LoginSignup'
+
+export default {
+    components: {
+        LoginSignup,
+    },
+}
+</script>
 
 <style lang="scss" scoped>
 .home {
