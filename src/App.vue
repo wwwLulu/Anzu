@@ -1,12 +1,15 @@
 <template>
+    <TheNavigation />
     <h1>Logged in as {{ $store.getters.userName }}</h1>
-    <router-view />
+    <RouterView />
 </template>
 
 <script>
+import TheNavigation from '@/components/Layout/TheNavigation'
+
 export default {
-    created() {
-        // this.$store.dispatch('updateUserInfo')
+    components: {
+        TheNavigation,
     },
 }
 </script>
@@ -24,6 +27,9 @@ html {
     font-size: 62.5%;
     @media (max-width: 600px) {
         font-size: 55%;
+    }
+    @media (min-width: 2000px) {
+        font-size: 100%;
     }
 }
 * {
