@@ -34,7 +34,6 @@ export default {
     },
     mutations: {
         removeDuplicates(state) {
-            // state.animeList = [...new Set(state.animeList)]
             state.animeList = state.animeList.filter(
                 (v, i, a) => a.findIndex((t) => t.title === v.title) === i
             )

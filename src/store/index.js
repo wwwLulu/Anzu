@@ -8,7 +8,7 @@ const store = createStore({
     },
     state() {
         return {
-            database: [],
+            database: localStorage.getItem('database') || [],
             userId: localStorage.getItem('userId') || null,
             userAvatar: localStorage.getItem('userAvatar') || null,
             userName: localStorage.getItem('userName') || null,
@@ -177,9 +177,14 @@ const store = createStore({
             localStorage.removeItem('userAvatar')
         },
         async setDatabase(context) {
+            // Will only fetch DB when it needs to, otherwise its in local storage
+            if (context.state.database.length > 0) {
+                return
+            }
             const res = await fetch('/database/db.json')
             const list = await res.json()
             context.state.database = list.data
+            localStorage.setItem('database', list.data)
         },
     },
     mutations: {
