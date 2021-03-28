@@ -1,8 +1,8 @@
 <template>
     <div class="user">
         <div class="user__avatar-container">
-            <img :src="userImgUrl" alt="avatar" class="user__avatar" />
-            <!-- <img class="user__avatar" src="https://placewaifu.com/image/200" /> -->
+            <!-- <img :src="userImgUrl" alt="avatar" class="user__avatar" /> -->
+            <img class="user__avatar" src="https://placewaifu.com/image/200" />
         </div>
         <p class="user__name">{{ username }}</p>
     </div>
