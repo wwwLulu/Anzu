@@ -8,6 +8,7 @@ const store = createStore({
     },
     state() {
         return {
+            database: [],
             userId: localStorage.getItem('userId') || null,
             userAvatar: localStorage.getItem('userAvatar') || null,
             userName: localStorage.getItem('userName') || null,
@@ -17,6 +18,9 @@ const store = createStore({
         }
     },
     getters: {
+        db(state) {
+            return state.database
+        },
         userId(state) {
             return state.userId
         },
@@ -171,6 +175,11 @@ const store = createStore({
             localStorage.removeItem('tokenExpiration')
             localStorage.removeItem('userName')
             localStorage.removeItem('userAvatar')
+        },
+        async setDatabase(context) {
+            const res = await fetch('/database/db.json')
+            const list = await res.json()
+            context.state.database = list.data
         },
     },
     mutations: {

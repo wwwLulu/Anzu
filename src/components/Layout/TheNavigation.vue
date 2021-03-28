@@ -1,5 +1,6 @@
 <template>
     <nav class="nav">
+        <SearchAnime />
         <router-link class="nav__link" to="/">
             Home
         </router-link>
@@ -20,7 +21,12 @@
 </template>
 
 <script>
+import SearchAnime from '@/components/UI/SearchAnime'
+
 export default {
+    components: {
+        SearchAnime,
+    },
     methods: {
         logout() {
             this.$store.dispatch('logout')
@@ -31,6 +37,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .nav {
+    position: relative;
     width: 100%;
     height: 5rem;
     background: var(--color-primary);
@@ -60,6 +67,14 @@ export default {
             color: var(--color-primary);
             background: white;
         }
+    }
+    &__search {
+        font-size: 1.4rem;
+        border: none;
+        border-radius: 0.5rem;
+        padding: 0.5rem 1rem;
+        position: absolute;
+        left: 2rem;
     }
 }
 </style>

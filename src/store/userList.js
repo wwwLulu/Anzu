@@ -130,6 +130,21 @@ export default {
             }
             context.commit('fetchUserList', userList)
         },
+        addEntry(context, title) {
+            const animeList = context.getters.animeList
+            const db = context.getters.db
+            let anime = db.find((anime) => anime.title == title)
+            animeList.push({
+                title: anime.title,
+                score: 0,
+                episodes: anime.episodes,
+                episodeOn: 1,
+                coverUrl: anime.picture || anime.thumbnail,
+                type: anime.type,
+            })
+            context.state.animeList = animeList
+            context.dispatch('updateUserList')
+        },
         async updateUserList(context) {
             const userName = context.getters.userName
 
