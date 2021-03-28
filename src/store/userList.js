@@ -114,26 +114,7 @@ export default {
                 userList.push(animeEntry)
             }
             if (userList.length == 0) {
-                userList = [
-                    {
-                        title: 'Mushoku Tensei: Isekai Ittara Honki Dasu',
-                        score: 8,
-                        episodes: 24,
-                        episodeOn: 12,
-                        coverUrl:
-                            'https://cdn.myanimelist.net/images/anime/1068/111129.jpg',
-                        type: 'TV',
-                    },
-                    {
-                        title: 'Made In Abyss',
-                        score: 10,
-                        episodes: 13,
-                        episodeOn: 13,
-                        coverUrl:
-                            'https://cdn.myanimelist.net/images/anime/6/86733.webp',
-                        type: 'TV',
-                    },
-                ]
+                userList = []
                 await context.dispatch('updateUserList')
             }
             context.commit('fetchUserList', userList)
