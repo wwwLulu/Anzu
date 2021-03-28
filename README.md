@@ -8,6 +8,9 @@ The question is "Why bother making your own anime list tracker when there are 3 
 
 My answer: Because I want to >:( and it helped me to learn how to make more complex vue applications.
 
+## Disclaimer
+This website was my first attempt at a full stack app, that means the code is very inefficient and messy, and should not be used as an example for your own.
+I learned a lot about how single page applications handle authentication, and I hope to make a better version in the distant future. 
 ## Project setup
 ```
 npm install
