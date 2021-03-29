@@ -77,6 +77,7 @@ export default {
             this.results = results
         },
         addEntry(title) {
+            this.search = ''
             this.$store.dispatch('addEntry', title)
             this.results = []
             this.addedToListEvent = true

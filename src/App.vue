@@ -1,8 +1,5 @@
 <template>
     <TheNavigation />
-    <h1 v-if="$store.state.isAuthenticated">
-        Logged in as {{ $store.getters.userName }}
-    </h1>
     <RouterView />
 </template>
 

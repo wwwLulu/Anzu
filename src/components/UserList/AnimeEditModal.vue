@@ -71,9 +71,18 @@ export default {
             completed: false,
         }
     },
+    watch: {
+        currentEpisode() {
+            if (this.currentEpisode < this.episodes) {
+                this.completed = false
+            }
+        },
+    },
     computed: {
         currentEpisode() {
-            return this.progress.slice(0, this.progress.split('').indexOf('/'))
+            return this.completed
+                ? this.episodes
+                : this.progress.slice(0, this.progress.split('').indexOf('/'))
         },
         episodes() {
             return this.progress.slice(
