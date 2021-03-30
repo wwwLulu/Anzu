@@ -1,5 +1,6 @@
 <template>
     <nav class="nav">
+        <p class="nav__logo">Nipah</p>
         <SearchAnime />
         <!-- <router-link
             v-if="!!$store.state.token"
@@ -45,6 +46,16 @@ export default {
     padding: 0 1rem;
     * {
         margin-right: 2rem;
+    }
+    &__logo {
+        font-family: 'Fredoka One', cursive;
+        position: absolute;
+        left: 2rem;
+        color: white;
+        font-size: 2.5rem;
+        @media (max-width: 800px) {
+            display: none;
+        }
     }
     &__link,
     &__link:visited {
