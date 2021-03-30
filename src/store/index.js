@@ -169,6 +169,7 @@ const store = createStore({
                 userId: null,
                 tokenExpiration: null,
                 username: null,
+                userAvatar: null,
             })
             localStorage.removeItem('token')
             localStorage.removeItem('userId')
@@ -176,6 +177,8 @@ const store = createStore({
             localStorage.removeItem('userName')
             localStorage.removeItem('userAvatar')
             context.state.animeList = []
+            context.state.userListAvatar = null
+            context.state.userListName = null
         },
         async setDatabase(context) {
             const res = await fetch('/database/db.json')

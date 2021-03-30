@@ -61,7 +61,6 @@ export default {
                 }
             })
         },
-
         incrementEpisode(state, title) {
             state.animeList.forEach((anime) => {
                 if (anime.title == title && anime.episodeOn != anime.episodes) {
@@ -95,9 +94,9 @@ export default {
                 `https://anime-list-e4360-default-rtdb.firebaseio.com/userlist/${userName}.json`
             )
             const userListObj = await res.json()
-            if (!!userListObj == false) {
-                await context.dispatch('updateUserList')
-            }
+            // if (!!userListObj == false) {
+            //     await context.dispatch('updateUserList')
+            // }
             let userList = []
 
             for (const key in userListObj) {
@@ -111,10 +110,10 @@ export default {
                 }
                 userList.push(animeEntry)
             }
-            if (userList.length == 0) {
-                userList = []
-                await context.dispatch('updateUserList')
-            }
+            // if (userList.length == 0) {
+            //     userList = []
+            //     await context.dispatch('updateUserList')
+            // }
             context.commit('fetchUserList', userList)
         },
         removeEntry(context, title) {

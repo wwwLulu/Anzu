@@ -43,17 +43,17 @@
                     placeholder="Email"
                 />
                 <input
+                    type="text"
+                    class="form__input"
+                    v-model="userName"
+                    placeholder="Username"
+                />
+                <input
                     class="form__input"
                     type="password"
                     name="password"
                     v-model="password"
                     placeholder="Password"
-                />
-                <input
-                    type="text"
-                    class="form__input"
-                    v-model="userName"
-                    placeholder="Username"
                 />
                 <button class="form__submit">Submit</button>
             </form>
