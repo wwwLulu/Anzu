@@ -94,13 +94,16 @@ export default {
 <style lang="scss" scoped>
 .search {
     z-index: 500000;
-    position: relative;
-    padding: 1rem;
+    margin-right: 2rem;
+
     &__input {
         font-size: 1.4rem;
         border: none;
         border-radius: 0.5rem;
         padding: 0.5rem 1rem;
+        width: 30rem;
+        max-width: 30rem;
+        border: white 1px solid;
     }
     &__results {
         position: absolute;

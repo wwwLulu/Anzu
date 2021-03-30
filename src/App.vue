@@ -10,18 +10,6 @@ export default {
     components: {
         TheNavigation,
     },
-    created() {
-        // var firebaseConfig = {
-        //     apiKey: 'AIzaSyDdzxxUEoKDQ_YuHQkKUgViBdVqxYarZIM',
-        //     authDomain: 'anime-list-e4360.firebaseapp.com',
-        //     databaseURL: 'https://anime-list-e4360-default-rtdb.firebaseio.com',
-        //     projectId: 'anime-list-e4360',
-        //     storageBucket: 'anime-list-e4360.appspot.com',
-        //     messagingSenderId: '57837196583',
-        //     appId: '1:57837196583:web:db16cde93b4819f1d28502',
-        //     measurementId: 'G-8QKM42T5M9',
-        // }
-    },
 }
 </script>
 

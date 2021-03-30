@@ -1,5 +1,5 @@
 <template>
-    <div class="user" :key="componentKey">
+    <div class="user">
         <div class="user__avatar-container">
             <img :src="userImgUrl" alt="avatar" class="user__avatar" />
         </div>
@@ -26,16 +26,7 @@ export default {
         userImgUrl: String,
         username: String,
     },
-    components: {},
-    data() {
-        return {
-            componentKey: 0,
-        }
-    },
     methods: {
-        forceUpdate() {
-            this.componentKey++
-        },
         async uploadAvatar() {
             let form = new FormData()
             let formData = this.$refs.uploader
@@ -48,10 +39,8 @@ export default {
                     body: form,
                 })
                 const data = await res.json()
-                let avatarUrl = data.data.url
-                this.$store.state.userAvatar = avatarUrl
+                this.$store.state.userAvatar = data.data.url
                 await this.$store.dispatch('updateUserInfo')
-                this.forceUpdate()
                 location.reload()
             } catch (e) {
                 console.log(e)
@@ -95,6 +84,11 @@ export default {
         color: var(--color-text-100);
         font-size: 1.8rem;
         font-weight: 300;
+    }
+    &__img-upload {
+        max-width: 100%;
+        width: 30rem;
+        overflow: hidden;
     }
 }
 </style>

@@ -188,16 +188,12 @@ const store = createStore({
             state.userId = payload.userId
             state.tokenExpiration = payload.tokenExpiration
             state.userName = payload.username
-            state.userAvatar =
-                'https://64.media.tumblr.com/c21f4646a575e54c0ae0fa0f5053c023/tumblr_oeff7f2Pcd1ubcx5fo4_250.png'
+            state.userAvatar = payload.userAvatar
             localStorage.setItem('token', payload.token)
             localStorage.setItem('userId', payload.userId)
             localStorage.setItem('tokenExpiration', payload.tokenExpiration)
             localStorage.setItem('userName', payload.username)
-            localStorage.setItem(
-                'userAvatar',
-                'https://64.media.tumblr.com/c21f4646a575e54c0ae0fa0f5053c023/tumblr_oeff7f2Pcd1ubcx5fo4_250.png'
-            )
+            localStorage.setItem('userAvatar', payload.userAvatar)
         },
     },
 })

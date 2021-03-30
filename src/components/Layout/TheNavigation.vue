@@ -1,16 +1,13 @@
 <template>
     <nav class="nav">
         <SearchAnime />
-        <!-- <router-link class="nav__link" to="/">
-            Home
-        </router-link> -->
-        <router-link
+        <!-- <router-link
             v-if="!!$store.state.token"
             class="nav__link"
             :to="`/user/${$store.getters.userName}`"
         >
             My List
-        </router-link>
+        </router-link> -->
         <button v-if="!!$store.state.token" @click="logout" class="nav__logout">
             Logout
         </button>
