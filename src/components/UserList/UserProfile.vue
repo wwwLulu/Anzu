@@ -2,9 +2,23 @@
     <div class="user">
         <div class="user__avatar-container">
             <img :src="userImgUrl" alt="avatar" class="user__avatar" />
+            <div
+                v-if="username == $store.getters.userName"
+                class="user__img-upload"
+            >
+                <input
+                    @change="uploadAvatar"
+                    type="file"
+                    id="myFile"
+                    name="filename"
+                    accept="image/*"
+                    ref="uploader"
+                />
+            </div>
+            <i class="fa fa-camera" aria-hidden="true"></i>
         </div>
         <p class="user__name">{{ username }}</p>
-        <div
+        <!-- <div
             v-if="username == $store.getters.userName"
             class="user__img-upload"
         >
@@ -16,7 +30,7 @@
                 ref="uploader"
             />
             <button @click="uploadAvatar">Upload</button>
-        </div>
+        </div> -->
     </div>
 </template>
 
@@ -68,9 +82,29 @@ export default {
         }
     }
     &__avatar-container {
+        position: relative;
         width: 12.5rem;
         height: 12.5rem;
         border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &:hover {
+            background: rgba(0, 0, 0, 0.5);
+        }
+        &:hover .user__avatar {
+            width: 0;
+            height: 0;
+        }
+        &:hover i {
+            opacity: 1;
+        }
+        i {
+            position: absolute;
+            font-size: 3rem;
+            color: white;
+            opacity: 0;
+        }
     }
     &__avatar {
         border-radius: inherit;
@@ -86,9 +120,18 @@ export default {
         font-weight: 300;
     }
     &__img-upload {
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        bottom: 0;
         max-width: 100%;
         width: 30rem;
         overflow: hidden;
+        opacity: 0;
+        input {
+            height: 100%;
+            width: 100%;
+        }
     }
 }
 </style>

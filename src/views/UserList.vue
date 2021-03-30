@@ -3,7 +3,10 @@
         <UserProfile
             class="col-4"
             :username="$store.state.userListName"
-            :userImgUrl="$store.state.userListAvatar"
+            :userImgUrl="
+                $store.state.userListAvatar ||
+                    'https://placewaifu.com/image/200'
+            "
         />
         <section class="lists col-8">
             <h2
