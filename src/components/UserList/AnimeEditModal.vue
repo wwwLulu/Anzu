@@ -22,7 +22,7 @@
                     <input
                         type="number"
                         :max="episodes"
-                        min="1"
+                        min="0"
                         step="1"
                         :value="currentEpisode"
                         ref="progress"
