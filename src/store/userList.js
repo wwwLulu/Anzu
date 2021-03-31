@@ -68,10 +68,11 @@ export default {
             })
         },
         sortUserList(state, method) {
+            console.log(method)
             if (method == 'score') {
                 state.animeList.sort((a, b) => b.score - a.score)
             } else {
-                state.animeList.sort((a, b) => a.title - b.title)
+                state.animeList.sort((a, b) => a.title > b.title)
             }
         },
         sortByTitleAZ(state) {

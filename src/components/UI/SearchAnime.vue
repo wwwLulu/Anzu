@@ -80,7 +80,7 @@ export default {
                             .indexOf(this.search.toLowerCase()) > -1
                     ) {
                         results.push({
-                            title: synonym,
+                            title: anime.title,
                             thumbnail: anime.thumbnail,
                         })
                     }

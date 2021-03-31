@@ -49,6 +49,7 @@ export default {
         AnimeList,
         UserProfile,
     },
+
     async mounted() {
         await this.$store.dispatch('getUserInfo', this.username)
         await this.$store.dispatch('getUserList', this.username)
