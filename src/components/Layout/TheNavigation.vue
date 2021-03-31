@@ -5,7 +5,7 @@
             :to="`/user/${$store.getters.userName}`"
             class="nav__logo"
         >
-            Nipah
+            Nippah
         </router-link>
         <SearchAnime />
         <!-- <router-link
