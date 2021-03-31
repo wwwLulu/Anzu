@@ -1,4 +1,4 @@
-# Anime-tracker (Akko)
+# Anime-tracker Nippah
 <img src='https://i.ibb.co/qnZnBRm/Screen-Shot-2021-03-23-at-5-20-06-AM.png'>
 
 The question is "Why bother making your own anime list tracker when there are 3 really popular, well made sites?" <br>
