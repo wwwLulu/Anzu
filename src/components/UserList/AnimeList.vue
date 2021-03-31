@@ -60,7 +60,7 @@ export default {
     width: 90vw;
     max-width: 70rem;
     min-height: 1rem;
-    background: white;
+    background: var(--color-list-background);
 
     * {
         color: var(--color-text-100);

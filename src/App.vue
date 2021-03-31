@@ -19,8 +19,14 @@ export default {
 
 :root {
     --color-primary: #6a62c2;
+    --color-background: #eaeaea;
+    --color-list-background: white;
     --color-text-100: rgba(0, 0, 0, 0.6);
-    --color-text-200: rgba(0, 0, 0, 0.6);
+
+    // --color-primary: #5349c0;
+    // --color-background: #474747;
+    // --color-list-background: rgb(34, 34, 34);
+    // --color-text-100: rgba(255, 255, 255, 0.8);
 }
 html {
     scroll-behavior: smooth;
@@ -40,7 +46,7 @@ html {
     margin: 0;
 }
 body {
-    background: #eaeaea;
+    background: var(--color-background);
     max-width: 1925px;
     margin: 0 auto;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),

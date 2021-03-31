@@ -8,13 +8,18 @@
             Nippah
         </router-link>
         <SearchAnime />
-        <!-- <router-link
-            v-if="!!$store.state.token"
-            class="nav__link"
-            :to="`/user/${$store.getters.userName}`"
-        >
-            My List
-        </router-link> -->
+        <div class="nav__dark-mode">
+            <i
+                @click="setDarkMode"
+                v-if="!$store.state.darkMode"
+                class="fas fa-moon nav__dark-mode--moon"
+            ></i>
+            <i
+                @click="setLightMode"
+                v-else
+                class="fas fa-sun nav__dark-mode--sun"
+            ></i>
+        </div>
         <button v-if="!!$store.state.token" @click="logout" class="nav__logout">
             Logout
         </button>
@@ -31,14 +36,41 @@ export default {
     components: {
         SearchAnime,
     },
+    mounted() {
+        if (this.$store.state.darkMode) {
+            this.setDarkMode()
+        } else {
+            this.setLightMode()
+        }
+    },
     methods: {
         logout() {
             this.$store.dispatch('logout')
             this.$router.push('/')
         },
+        setDarkMode() {
+            let root = document.documentElement
+            root.style.setProperty('--color-primary', ' #5349c0')
+            root.style.setProperty('--color-background', '#474747')
+            root.style.setProperty('--color-list-background', 'rgb(34, 34, 34)')
+            root.style.setProperty(
+                '--color-text-100',
+                'rgba(255, 255, 255, 0.8)'
+            )
+            this.$store.commit('setTheme', { darkMode: true })
+        },
+        setLightMode() {
+            let root = document.documentElement
+            root.style.setProperty('--color-primary', ' #6a62c2')
+            root.style.setProperty('--color-background', '#eaeaea')
+            root.style.setProperty('--color-list-background', 'white')
+            root.style.setProperty('--color-text-100', 'rgba(0, 0, 0, 0.6)')
+            this.$store.commit('setTheme', { darkMode: false })
+        },
     },
 }
 </script>
+
 <style lang="scss" scoped>
 .nav {
     z-index: 6000000;
@@ -91,6 +123,22 @@ export default {
         padding: 0.5rem 1rem;
         position: absolute;
         left: 2rem;
+    }
+    &__dark-mode {
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2rem;
+        i {
+            margin: 0 auto;
+        }
+        &--moon {
+            color: white;
+        }
+        &--sun {
+            color: white;
+        }
     }
 }
 </style>

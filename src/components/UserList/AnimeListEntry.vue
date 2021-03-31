@@ -97,6 +97,7 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    color: var(--color-text-100);
 
     &:hover {
         background: var(--color-primary);

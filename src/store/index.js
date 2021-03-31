@@ -15,6 +15,7 @@ const store = createStore({
             validSignup: true,
             token: localStorage.getItem('token') || null,
             tokenExpiration: localStorage.getItem('tokenExpiration') || null,
+            darkMode: localStorage.getItem('darkMode') || false,
         }
     },
     getters: {
@@ -198,6 +199,10 @@ const store = createStore({
             localStorage.setItem('tokenExpiration', payload.tokenExpiration)
             localStorage.setItem('userName', payload.username)
             localStorage.setItem('userAvatar', payload.userAvatar)
+        },
+        setTheme(state, payload) {
+            state.darkMode = payload.darkMode
+            localStorage.setItem('darkMode', payload.darkMode)
         },
     },
 })
