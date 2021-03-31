@@ -16,7 +16,7 @@
             <div>
                 <div
                     class="search__result"
-                    @click="addEntry(result.title)"
+                    @click="addEntry(result.actualTitle)"
                     v-for="result in results"
                     :key="result"
                 >
@@ -44,6 +44,7 @@ export default {
             search: '',
             results: [],
             list: [],
+            title: '',
         }
     },
     async mounted() {
@@ -69,6 +70,7 @@ export default {
                         .indexOf(this.search.toLowerCase()) > -1
                 ) {
                     results.push({
+                        actualTitle: anime.title,
                         title: anime.title,
                         thumbnail: anime.thumbnail,
                     })
@@ -80,7 +82,8 @@ export default {
                             .indexOf(this.search.toLowerCase()) > -1
                     ) {
                         results.push({
-                            title: anime.title,
+                            actualTitle: anime.title,
+                            title: synonym,
                             thumbnail: anime.thumbnail,
                         })
                     }
