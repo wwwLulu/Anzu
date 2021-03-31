@@ -104,7 +104,7 @@ export default {
 <style lang="scss" scoped>
 .card {
     padding: 1.5rem;
-    background: white;
+    background: var(--color-list-background);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     width: fit-content;
     border-radius: 0.5rem;
@@ -135,7 +135,7 @@ export default {
     align-items: flex-start;
     &__input {
         font-weight: 300;
-        color: var(--color-text-100);
+        color: rgba(0, 0, 0, 0.6);
         background: darken(#fff, 10);
         &:not(:last-child) {
             margin-bottom: 1.5rem;
