@@ -1,5 +1,6 @@
 <template>
-    <div class="row">
+    <base-spinner v-if="!finishedLoading"></base-spinner>
+    <div v-else class="row">
         <UserProfile
             class="col-4"
             :username="$store.state.userListName"
@@ -49,12 +50,18 @@ export default {
         AnimeList,
         UserProfile,
     },
-
+    data() {
+        return {
+            finishedLoading: false,
+        }
+    },
     async mounted() {
         await this.$store.dispatch('getUserInfo', this.username)
         await this.$store.dispatch('getUserList', this.username)
         this.$store.commit('sortUserList', this.sortMethod)
+        this.finishedLoading = true
     },
+    updated() {},
     computed: {
         watchingList() {
             return this.$store.getters.watchingList

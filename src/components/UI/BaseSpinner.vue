@@ -1,19 +1,31 @@
 <template>
-    <div class="spinner">
-        <div class="lds-roller">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+    <div class="loading">
+        <div class="spinner">
+            <div class="lds-roller">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
         </div>
     </div>
 </template>
 
-<style scoped>
+<style>
+.loading {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .spinner {
     display: flex;
     justify-content: center;
@@ -38,7 +50,7 @@
     width: 7px;
     height: 7px;
     border-radius: 50%;
-    background: #3d008d;
+    background: var(--color-primary);
     margin: -4px 0 0 -4px;
 }
 .lds-roller div:nth-child(1) {
