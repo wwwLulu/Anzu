@@ -130,7 +130,6 @@ export default {
                 ...data.data.Media,
             }
             this.animeInfo = animeInfo
-            console.log(this.animeInfo)
         },
         deleteEntry() {
             this.$store.dispatch('removeEntry', this.title)
