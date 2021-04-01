@@ -22,7 +22,7 @@ export default {
     --color-background: #eaeaea;
     --color-list-background: white;
     --color-text-100: rgba(0, 0, 0, 0.6);
-
+    // Dark Mode
     // --color-primary: #5349c0;
     // --color-background: #474747;
     // --color-list-background: rgb(34, 34, 34);

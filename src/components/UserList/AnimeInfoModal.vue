@@ -1,7 +1,8 @@
 <template>
     <div class="modal">
         <div @click="$emit('closeModal')" class="modal__backdrop"></div>
-        <div class="modal__info">
+        <base-spinner v-if="!finishedLoading"></base-spinner>
+        <div v-else class="modal__info">
             <div class="modal__cover-container">
                 <img :src="coverUrl" alt="" class="modal__cover" />
             </div>
@@ -36,6 +37,16 @@ export default {
         genres: Array,
     },
     emits: ['closeModal'],
+    data() {
+        return {
+            finishedLoading: false,
+        }
+    },
+    watch: {
+        averageScore() {
+            this.finishedLoading = true
+        },
+    },
 }
 </script>
 
