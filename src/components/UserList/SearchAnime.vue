@@ -3,7 +3,13 @@
         v-if="addedToListEvent"
         :message="`The anime ${animeSelected} has been added to your list`"
     />
-    <div v-if="!!$store.state.token" class="search">
+    <div
+        v-if="
+            !!$store.state.token &&
+                $route.params.username == $store.getters.userName
+        "
+        class="search"
+    >
         <input
             class="search__input"
             type="text"
