@@ -10,7 +10,7 @@
                 <p class="modal__title">{{ title }}</p>
                 <p class="modal__type">{{ type }}</p>
                 <p class="modal__averageScore">
-                    Avg Score:
+                    Average Score:
                     <span class="modal__score">{{ averageScore / 10 }}</span>
                 </p>
                 <div class="modal__genres">
@@ -39,7 +39,7 @@ export default {
     emits: ['closeModal'],
     data() {
         return {
-            finishedLoading: false,
+            finishedLoading: this.averageScore == null ? false : true,
         }
     },
     watch: {
