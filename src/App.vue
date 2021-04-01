@@ -31,6 +31,9 @@ export default {
 html {
     scroll-behavior: smooth;
     font-size: 62.5%;
+    @media (min-width: 1200px) {
+        font-size: 70%;
+    }
     @media (min-width: 1500px) {
         font-size: 85%;
     }
