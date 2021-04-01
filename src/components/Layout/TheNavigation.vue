@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import SearchAnime from '@/components/UI/SearchAnime'
+import SearchAnime from '@/components/UserList/SearchAnime'
 
 export default {
     components: {
