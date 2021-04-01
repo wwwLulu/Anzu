@@ -76,6 +76,12 @@ export default {
             let results = []
             for (const anime of this.list) {
                 if (
+                    anime.type.toLowerCase() == 'ona' ||
+                    anime.type.toLowerCase() == 'special'
+                ) {
+                    continue
+                }
+                if (
                     anime.title
                         .toLowerCase()
                         .indexOf(this.search.toLowerCase()) > -1
@@ -85,7 +91,7 @@ export default {
                         title: anime.title,
                         thumbnail: anime.thumbnail,
                     })
-                    break
+                    continue
                 }
                 for (const synonym of anime.synonyms) {
                     if (
