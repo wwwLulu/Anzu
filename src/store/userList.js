@@ -126,7 +126,17 @@ export default {
             context.dispatch('updateUserList')
         },
         async updateUserList(context) {
-            if (this.$route.params.username != context.getters.userName) {
+            if (
+                window.location.href.toLowerCase() !=
+                `https://nippah.com/user/${context.getters.userName.toLowerCase()}`
+            ) {
+                // console.log(window.location.href.toLowerCase().trim())
+                // console.log(
+                //     `http://localhost:8080/user/${context.getters.userName
+                //         .toLowerCase()
+                //         .trim()}`
+                // )
+                console.error('unable to alter this data')
                 return
             }
 
