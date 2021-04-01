@@ -22,6 +22,13 @@
                         {{ genre }}
                     </span>
                 </div>
+                <a
+                    :href="`https://anilist.co/anime/${anilistId}/`"
+                    class="modal__more-info"
+                    target="_blank"
+                >
+                    More Info
+                </a>
             </div>
         </div>
     </div>
@@ -35,6 +42,7 @@ export default {
         averageScore: Number,
         type: String,
         genres: Array,
+        anilistId: String,
     },
     emits: ['closeModal'],
     data() {
@@ -95,6 +103,13 @@ export default {
         object-position: center;
         border-radius: 0.5rem;
     }
+    &__more-info {
+        font-size: 1rem;
+        color: var(--color-text-100);
+        &:visited {
+            color: var(--color-text-100);
+        }
+    }
     &__score,
     &__title {
         font-weight: 400;
@@ -114,7 +129,7 @@ export default {
         font-size: 1.2rem;
         border-radius: 0.5rem;
         margin-right: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-top: 0.5rem;
         padding: 0.5rem;
         background: var(--color-primary);
         color: white;

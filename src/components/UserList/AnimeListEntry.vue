@@ -19,6 +19,7 @@
             :averageScore="animeInfo.averageScore"
             :type="type"
             :genres="animeInfo.genres"
+            :anilistId="animeInfo.id"
         />
     </teleport>
     <div class="anime">
@@ -127,6 +128,7 @@ export default {
             let animeInfo = {
                 title: this.title,
                 coverUrl: this.coverUrl,
+                id: anilistId,
                 ...data.data.Media,
             }
             this.animeInfo = animeInfo
