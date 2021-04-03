@@ -1,8 +1,12 @@
 <template>
     <nav class="nav">
         <router-link
-            @click="location.reload()"
-            :to="`/user/${$store.getters.userName}`"
+            @click="$store.getters.userName && location.reload()"
+            :to="
+                $store.getters.userName
+                    ? `/user/${$store.getters.userName}`
+                    : `/auth`
+            "
             class="nav__logo"
         >
             Nippah
